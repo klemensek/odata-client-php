@@ -53,6 +53,7 @@ class Grammar implements IGrammar
         'skiptoken',
         'take',
         'totalCount',
+        'company',
     ];
 
     /**
@@ -177,6 +178,7 @@ class Grammar implements IGrammar
                 || isset($query->orders)
                 || isset($query->expands)
                 || isset($query->take)
+                || isset($query->company)
                 || isset($query->skip)
                 || isset($query->skiptoken)
             )) {
@@ -407,6 +409,11 @@ class Grammar implements IGrammar
             return '';
         }
         return $this->appendQueryParam('$top=') . (int) $take;
+    }
+
+    protected function compileCompany(Builder $query, $company)
+    {
+        return $this->appendQueryParam('company=') . $company;
     }
 
     /**
