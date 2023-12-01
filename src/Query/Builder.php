@@ -115,6 +115,7 @@ class Builder
      */
     public $take;
 
+    public $company;
     /**
      * The desired page size.
      *
@@ -917,6 +918,12 @@ class Builder
     public function take($value)
     {
         $this->take = $value;
+        return $this;
+    }
+
+    public function company($value)
+    {
+        $this->company = $value;
         return $this;
     }
 
